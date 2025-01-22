@@ -1,7 +1,7 @@
 #include <Adafruit_NeoPixel.h>
 
-#define PIN 6        // NeoPixel 데이터 핀
-#define NUM_LEDS 8   // NeoPixel LED 개수
+#define PIN A5        // NeoPixel 데이터 핀
+#define NUM_LEDS 12   // NeoPixel LED 개수
 
 Adafruit_NeoPixel strip(NUM_LEDS, PIN, NEO_GRB + NEO_KHZ800);
 
@@ -59,8 +59,8 @@ void setup() {
 }
 
 void loop() {
-  int tempValue = smoothAnalogRead(A0); // A0에서 가변저항 값 읽기 (색온도)
-  int brightnessValue = smoothAnalogRead(A1); // A1에서 가변저항 값 읽기 (밝기)
+  int tempValue = smoothAnalogRead(A1); // A0에서 가변저항 값 읽기 (색온도)
+  int brightnessValue = smoothAnalogRead(A3); // A1에서 가변저항 값 읽기 (밝기)
 
   // 색온도 범위: 1000K ~ 10000K
   uint16_t kelvin = map(tempValue, 0, 1023, 1000, 10000);
